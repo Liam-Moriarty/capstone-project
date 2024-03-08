@@ -1,0 +1,36 @@
+/* Fonts Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap");
+
+/* Reset Styles */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html,
+body,
+#root,
+.app,
+.content {
+  width: 100%;
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+/* 60-30-10 Color Palette
+  PRIMARY: #101624 - DARK
+  SECONDARY 30%: #141b2d -LIGHT #1f2a40 - BACKUP
+  Font Colors: edf0f1 -LIGHT
+  10%: #0088a9 - BLUE
+  10%-HOVER/LIGHT-DARK: #0088a9cc - DARK BLUE
+*/
+
+.app {
+  display: flex;
+  position: relative;
+  background-color: #101624;
+  color: #edf0f1;
+}

@@ -1,0 +1,21 @@
+.request-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 5em;
+
+  width: 100%;
+  height: auto;
+  padding: 0 2em;
+  background-color: #101624;
+}
+
+.request {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+
+  background-color: #141b2d;
+  padding: 1.5em;
+  color: #edf0f1;
+  font-weight: 700;
+}

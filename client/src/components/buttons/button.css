@@ -1,0 +1,17 @@
+.dl-reports {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.8em 2em;
+
+  background-color: #0088a9;
+  border: none;
+  border-radius: 3px;
+  color: #edf0f1;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.dl-reports:hover {
+  background-color: #035e753d;
+}

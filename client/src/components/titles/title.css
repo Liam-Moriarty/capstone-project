@@ -1,0 +1,12 @@
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2em;
+}
+
+.title-wrapper p {
+  color: #0088a9;
+  font-weight: 700;
+  line-height: 0.8em;
+}

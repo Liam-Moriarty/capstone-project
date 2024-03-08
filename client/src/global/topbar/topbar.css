@@ -1,0 +1,38 @@
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 1em;
+  width: 100%;
+  height: 60px;
+  background-color: #101624;
+}
+
+.search-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 0.2em;
+  background-color: #141b2d;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 2px;
+}
+
+.search-wrapper input {
+  width: 100%;
+  height: 100%;
+
+  background-color: transparent;
+  border: none;
+  outline: none;
+  padding-left: 0.8em;
+  color: #edf0f1;
+}
+
+.search-wrapper input::placeholder {
+  color: #edf0f148;
+  font-weight: 400;
+}
