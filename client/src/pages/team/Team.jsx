@@ -1,5 +1,5 @@
 // imports
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./team.css";
 import Titles from "../../components/titles/Titles";
 
@@ -67,6 +67,20 @@ const Team = () => {
     },
   ];
 
+  const [team, setTeam] = useState(null);
+
+  useEffect(() => {
+    const fetchTeam = async () => {
+      const response = await fetch("http://localhost:3000/api/team");
+      const json = await response.json();
+
+      if (response.ok) {
+        setTeam(json);
+      }
+    };
+    fetchTeam();
+  }, []);
+
   return (
     // Titles
     <>
@@ -84,7 +98,7 @@ const Team = () => {
           </thead>
 
           {/* TABLE CONTENTS */}
-          <tbody>
+          {/* <tbody>
             {data.map((item, key) => (
               <tr key={key}>
                 <td>{item.id}</td>
@@ -96,6 +110,20 @@ const Team = () => {
                 <td>{item.role}</td>
               </tr>
             ))}
+          </tbody> */}
+          <tbody>
+            {team &&
+              team.map((teams) => (
+                <tr key={teams._id}>
+                  <td>{teams.id}</td>
+                  <td>{teams.firstName}</td>
+                  <td>{teams.lastName}</td>
+                  <td>{teams.age}</td>
+                  <td>{teams.email}</td>
+                  <td>{teams.contact}</td>
+                  <td>{teams.role}</td>
+                </tr>
+              ))}
           </tbody>
         </table>
       </div>
