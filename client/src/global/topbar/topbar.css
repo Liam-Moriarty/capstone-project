@@ -5,7 +5,7 @@
 
   padding: 1em;
   width: 100%;
-  height: 60px;
+  height: 8%;
   background-color: #101624;
 }
 
@@ -16,7 +16,6 @@
 
   padding: 0.2em;
   background-color: #141b2d;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   border: none;
   border-radius: 2px;
 }

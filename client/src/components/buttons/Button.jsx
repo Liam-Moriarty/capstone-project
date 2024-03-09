@@ -1,12 +1,13 @@
 import React from "react";
 import "./button.css";
-import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 
-const Button = () => {
+const Button = (props) => {
   return (
     <button className="dl-reports">
-      <DownloadOutlinedIcon style={{ color: "#edf0f1", cursor: "pointer" }} />
-      Download Reports
+      {props.icon && (
+        <props.icon style={{ color: "#edf0f1", cursor: "pointer" }} />
+      )}
+      {props.button}
     </button>
   );
 };

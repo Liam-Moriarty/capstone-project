@@ -7,6 +7,7 @@ import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import PetsOutlinedIcon from "@mui/icons-material/PetsOutlined";
 import MedicationOutlinedIcon from "@mui/icons-material/MedicationOutlined";
+import AddOutlinedIcon from "@mui/icons-material/AddOutlined";
 // img logo
 import logo from "../../assets/obanai.jpg";
 
@@ -26,7 +27,12 @@ const Sidebar = () => {
     {
       title: "Team",
       icon: <PeopleOutlinedIcon />,
-      link: "/teams",
+      link: "/team",
+    },
+    {
+      title: "Add Team",
+      icon: <AddOutlinedIcon />,
+      link: "/add",
     },
     {
       title: "Adoption",
