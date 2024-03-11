@@ -3,8 +3,14 @@ import React, { useState, useEffect } from "react";
 import "./team.css";
 import Titles from "../../components/titles/Titles";
 import Button from "../../components/buttons/Button";
+import { useTeamsContext } from "../../hook/useTeamsContext";
+
+// import icons
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import DeleteOutlinedIcon from "@mui/icons-material/DeleteOutlined";
+
+// React hot toast
+import toast, { Toaster } from "react-hot-toast";
 
 const Team = () => {
   const columns = [
@@ -31,7 +37,7 @@ const Team = () => {
     },
   ];
 
-  const [team, setTeam] = useState(null);
+  const { teams, dispatch } = useTeamsContext();
 
   useEffect(() => {
     const fetchTeam = async () => {
@@ -39,11 +45,24 @@ const Team = () => {
       const json = await response.json();
 
       if (response.ok) {
-        setTeam(json);
+        dispatch({ type: "SET_TEAM", payload: json });
       }
     };
     fetchTeam();
   }, []);
+
+  const handleDelete = async (teamId) => {
+    const response = await fetch(`http://localhost:3000/api/team/${teamId}`, {
+      method: "DELETE",
+    });
+
+    const json = await response.json();
+
+    if (response.ok) {
+      toast.success("Deletion was successful. The member has been removed.");
+      dispatch({ type: "DELETE_TEAM", payload: json });
+    }
+  };
 
   return (
     <>
@@ -63,19 +82,23 @@ const Team = () => {
             </tr>
           </thead>
           <tbody>
-            {team &&
-              team.map((teams) => (
-                <tr key={teams._id}>
-                  <td>{teams.firstName}</td>
-                  <td>{teams.lastName}</td>
-                  <td>{teams.age}</td>
-                  <td>{teams.email}</td>
-                  <td>{teams.contact}</td>
-                  <td>{teams.role}</td>
+            {teams &&
+              teams.map((team) => (
+                <tr key={team._id}>
+                  <td>{team.firstName}</td>
+                  <td>{team.lastName}</td>
+                  <td>{team.age}</td>
+                  <td>{team.email}</td>
+                  <td>{team.contact}</td>
+                  <td>{team.role}</td>
                   <td>
-                    <button className="delete">
+                    <button
+                      onClick={() => handleDelete(team._id)}
+                      className="delete"
+                    >
                       <DeleteOutlinedIcon /> Delete
                     </button>
+                    <Toaster position="top-right" />
                   </td>
                 </tr>
               ))}

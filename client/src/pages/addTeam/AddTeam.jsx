@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import "./addTeam.css";
 import Titles from "../../components/titles/Titles";
+import { useTeamsContext } from "../../hook/useTeamsContext";
 
 // React hot toast
 import toast, { Toaster } from "react-hot-toast";
@@ -14,6 +15,8 @@ import ContactPhoneOutlinedIcon from "@mui/icons-material/ContactPhoneOutlined";
 import BadgeOutlinedIcon from "@mui/icons-material/BadgeOutlined";
 
 const AddTeam = () => {
+  const { dispatch } = useTeamsContext();
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [age, setAge] = useState("");
@@ -53,6 +56,7 @@ const AddTeam = () => {
       setRole("");
       setError(null);
 
+      dispatch({ type: "CREATE_TEAM", payload: json });
       toast.success("Well done! New member has been successfully added.");
       console.log("New member added", json);
     }
